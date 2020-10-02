@@ -1,0 +1,71 @@
+.bodySpinner
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #042104;
+}
+#sectionSpinner
+{
+    animation: animateBg 10s linear infinite;
+}
+@keyframes animateBg
+{
+    0%
+    {
+        filter: hue-rotate(0deg);
+    }
+    100%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+.loader
+{
+    position: relative;
+    width: 25px;
+    height: 25px;
+}
+.loader span
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--sp)));
+}
+.loader span::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #00ff0a;
+    /*Para hacer efecto de sombreado alrededor*/
+    /*
+    box-shadow: 0 0 10px #00ff0a,
+                0 0 20px #00ff0a,
+                0 0 40px #00ff0a,
+                0 0 70px #00ff0a,
+                0 0 80px #00ff0a,
+                0 0 100px #00ff0a;
+    */
+    animation: animate 1s linear infinite;/*Para varaiar la velocidad*/
+    animation-delay: calc(0.1s * var(--sp));
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: scale(1);
+    }
+    80%,100%
+    {
+        transform: scale(0);
+    }
+}
